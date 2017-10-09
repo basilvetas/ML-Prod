@@ -117,7 +117,7 @@ def q1():
 
 
 def q2():
-	
+
 	# Increase viewed rows
 	pd.set_option('display.max_rows', 1000)
 
