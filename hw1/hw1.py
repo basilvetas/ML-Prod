@@ -1,16 +1,16 @@
 import sys
 import numpy as np
-from numpy import linalg as LA
+import pandas as pd
 import scipy
-from scipy import stats
 import matplotlib
 import math
-# from matplotlib import pyplot as plt
+from scipy import stats
 
 ## Main entry point
 def main():
 	
-	q1()
+	# q1()
+	q2()
 
 
 	return
@@ -114,6 +114,69 @@ def q1():
 	hours, minutes = divmod(minutes, 60)
 	days, hours = divmod(hours, 24)
 	print("Time difference:", days, "days", hours, "hours,", minutes, "minutes,", seconds, "seconds")
+
+
+def q2():
+	
+	# Increase viewed rows
+	pd.set_option('display.max_rows', 1000)
+
+	# Read data	
+	X = pd.read_csv('Expense_Budget.csv', low_memory=False)
+
+	# Restrict to police department
+	budgets_by_dept = X[X['Agency Name'] == 'POLICE DEPARTMENT']
+
+	# Separate by year
+	budgets_2017 = budgets_by_dept[budgets_by_dept['Fiscal Year'] == 2017]
+	budgets_2018 = budgets_by_dept[budgets_by_dept['Fiscal Year'] == 2018]
+
+	### (a)		
+
+	# Group by Budget Code Name and sum by budget code's data
+	budgets_grouped_2017 = budgets_2017[['Adopted Budget Amount', 'Budget Code Name']].groupby('Budget Code Name').sum().reset_index()
+	budgets_grouped_2018 = budgets_2018[['Adopted Budget Amount', 'Budget Code Name']].groupby('Budget Code Name').sum().reset_index()
+
+	# Join data for each year
+	yearly_budget = budgets_grouped_2017.set_index('Budget Code Name').join(budgets_grouped_2018.set_index('Budget Code Name'), lsuffix=' 2017', rsuffix=' 2018')
+
+	# To simplify, drop items that don't appear in each year
+	yearly_budget = yearly_budget.dropna(axis=0, how='any')
+
+	# Take differences between years
+	bud_2017 = yearly_budget['Adopted Budget Amount 2017']
+	bud_2018 = yearly_budget['Adopted Budget Amount 2018']
+	yearly_budget['YoY Change'] = bud_2018 - bud_2017
+
+	# View results
+	# yearly_budget
+
+	### (b)	
+
+	# Restrict by Budget and Budget Code Name
+	items_2017 = budgets_2017[['Adopted Budget Amount', 'Budget Code Name']]
+	items_2018 = budgets_2018[['Adopted Budget Amount', 'Budget Code Name']]
+
+	# Join data for each year
+	items_yearly_budget = items_2017.set_index('Budget Code Name').join(items_2018.set_index('Budget Code Name'), lsuffix=' 2017', rsuffix=' 2018')
+
+	# To simplify, drop items that don't appear in each year
+	items_yearly_budget = items_yearly_budget.dropna(axis=0, how='any')
+
+	# Take differences between years
+	i_2017 = items_yearly_budget['Adopted Budget Amount 2017']
+	i_2018 = items_yearly_budget['Adopted Budget Amount 2018']
+	items_yearly_budget['YoY Change'] = i_2018 - i_2017
+
+	# View results
+	# items_yearly_budget
+
+	## There are some weird things going on with the specific budget items.  There are too many
+	## constant quantities within 2018, and 2017 all the specific items are constant.  Need to
+	## think about the effect this is having on overestimating overall budget YoY
+	
+	return 
+
 
 
 if __name__ == '__main__':		
