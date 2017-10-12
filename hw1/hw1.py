@@ -177,7 +177,59 @@ def q2():
 	
 	return 
 
+## Question 3
 
+## Question 4
+# (a) The difference between the "Push" and "Pull" workflow for getting data to people
+# basically, for a data-driven company, these are the two primary strategies for 
+# getting data into the hands of decision makers:  
+#
+# 	The "Push" strategy involves sending out or pushing out data to people, such that 
+# 	the sender is choosing what information is important.  
+
+#		The "Pull" strategy involves providing tools and access to data to pull
+# 	people in, and then let decision makers access whatever data they deem important.
+
+# In terms of email reports, dashboards, and slack message bots and how they fit into these
+# categories: 
+#		Email reports are pretty clearly a "Push" strategy in that the sender is choosing what 
+#		data to send out via email.  Dashboards on the other hand are pretty clearly a "Pull"
+#		strategy in that you create a dashboard, make lots of data available in a meaningful
+# 	way, and then let users access the data they helps them make decisions. Finally, Slack
+# 	Bots I would say are primarily a "Push" strategy as you set up the bot to send out
+#		notifications or updates directly to users in slack, thus selecting what data is important.
+#		At the same time, however, Slack Bots can also provide a "Pull" strategy in that the whole
+#		purpose of bots is to provide and instant response mechanism for questions, etc. Therefore,
+#		by allowing users to ask questions to a Slack Bot in order to access data, this represents
+#		a "Pull" strategy (obviously restricted by the bot's response capabilities, but "Pull" nonetheless).
+#		Furthermore, I would argue that, in reality, all three of these can have elements of both
+#		"Push" and "Pull"—-as I've already exhibited with Slack Bots.  For email reports, you can 
+# 	include links to additional data sets, etc which the readers can then choose whether or not
+#		to access if they see it as important.  For dashboards, you could send out push notifications
+#		at time-intervals or on an event-driven basis, for instance, to employ a "Push" strategy.
+#
+#
+#	(b) If an author is producing a lot of content, it might be better to have a simple dashboard
+# because dashboard reporting, as just discussed, in inherently a "Pull" strategy.  In other words,
+#	it is more effective to allow the users to determine what data is important rather than decide for them.
+# Therefore, when there is a lot of content, a simple dashboard that describes the performance 
+# of each item might be better because the user isn't overwhelmed with an enormous amount of content
+# upfront, but can instead view the high-level performance of individual items, and dig into detailed
+# data for items they deem important, as the "Pull" strategy encourages.  Providing too detailed of 
+# data tables describing all items together could likely distort the importance of performance data
+#	for individual items. 
+#
+# (c) When you are sending data to a manager, it is likely because the manager has requested the data
+#	and is already interested in the data.  Also, sending is inherently a "Push" strategy so as the sender,
+# you are deciding what information is important. Therefore, it might be safer to send a very detailed data
+# table to the manager, because you know they are interested in this data, and you are indicating what data
+# you find important--it would be bad to leave out something that the manager might want to see.
+# Alternatively, for their reports, reporting is a "Pull" strategy, and therefore, it again might be better
+# to leave your reporting to more high-level data, and let decision makers dig more into data they find important
+# rather than potentially obscuring key performance data with too much other noisy data. 
+
+## Question 5
+# See react_dashboard.tar 
 
 if __name__ == '__main__':		
 	main()
