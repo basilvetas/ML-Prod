@@ -9,7 +9,7 @@ from scipy import stats
 ## Main entry point
 def main():
 	
-	# q1()
+	q1()
 	q2()
 
 
@@ -57,7 +57,16 @@ def q1():
 
 	# Part (d)
 	# ########
-	# relative error	
+	# relative error - approximation error 
+	# https://en.wikipedia.org/wiki/Approximation_error
+
+	# error in expected value
+	# mean is expected value
+	# a_abs_error = 100.434170645 + - 0.6090274361762766
+	# b_abs_error = 98.2748632943 + - 5.7847740601568205 
+	#
+	# relative error = abs_error / mean
+
 
 	# Part (e)
 	# ########
@@ -80,16 +89,21 @@ def q1():
 	# n = 16*var / delta**2
 	#
 	# Where delta is the sensitivity, or the amount of change we want to detect (effect size)
-	# 	--> in this case we are given delta = 10%
-	delta = 0.1
+	# 	--> in this case we are given delta = 10%	(relative to mean of either distribution)
+	delta_a = 0.1*a_mu
+	delta_b = 0.1*b_mu
 	#
 	# So, for the Part (a) distribution we would need a sample size of appx:
-	a_n = math.ceil((16*a_var) / (delta**2))
+	a_n = math.ceil((16*a_var) / (delta_a**2))
 	print("Part (a) experiment sample size:", a_n)	
 	# 
 	# And for the Part (b) distribution we would need a sample size of appx:
-	b_n = math.ceil((16*b_var) / (delta**2))
+	b_n = math.ceil((16*b_var) / (delta_b**2))
 	print("Part (b) experiment sample size:", b_n)
+
+	###
+	# FIX PART F -- Change assumption from seconds to minutes (since we changed delta)
+	###
 
 	# Part (f)
 	# ########
@@ -174,6 +188,10 @@ def q2():
 	## There are some weird things going on with the specific budget items.  There are too many
 	## constant quantities within 2018, and 2017 all the specific items are constant.  Need to
 	## think about the effect this is having on overestimating overall budget YoY
+
+	## Notice the dates are different --> instead we should just choose the most recent date
+	## and subtract from that
+	## We don't need to compute the actual correct answer though
 	
 	return 
 
