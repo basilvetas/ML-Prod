@@ -178,6 +178,26 @@ def q2():
 	return 
 
 ## Question 3
+# (a) (b)  Creating a neural net could require heavier resource investment that building a 
+# dashboard.  Additionally, there may be some "low hanging fruit" in terms of conclusions
+# you could draw by simply getting data out to people via dashboard rather than creating 
+# a neural net predictor. For instance, maybe you create a dashboard or even som basic visualizations
+# and quickly realize that most of your users interact with primarily only one feature--this would
+# make it pretty easy to "predict" future user interactions without even building a neural net.
+# Also, build a neural net is putting the decision making into the hands of the machine-the predicto
+# model, rather than people.  By initially getting data out to people viraa dashboard, you have a lot more
+# eyes on the data, and allow many more people to benefit from insights they can draw from the data, 
+# rather than withholding the data. Different stakeholders who control/manage different features may
+# have different data values that are important to them, and so by creating a dashboard initially,
+# it is likely you will drive a lot more business value across teams, rather than creating a neural
+# net that will really only be used by one team to try and predict future user actions. 
+
+# (c) in terms of whether or not to create a neural net afterwards, it depends.  Like in the example I gave 
+# above, if you realized that all your users were using one feature, then maybe there would be no further
+# benefit to building a neural net because you already know most interactions will be concentrated around one
+# feature. Or there may be other insights you can draw from dashboard data that then encourage you to commit
+# resources in different direction--maybe you want to further build out a feature that receives heavy user 
+# interaction, for example, before trying to predict user actions via neural net. 
 
 ## Question 4
 # (a) The difference between the "Push" and "Pull" workflow for getting data to people
